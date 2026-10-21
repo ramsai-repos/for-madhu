@@ -353,7 +353,8 @@ function saveUsed(u){ try{ localStorage.setItem('madhuCoupons', JSON.stringify(u
     const i = +b.dataset.i, c = CONFIG.coupons[i], u = loadUsed();
     if(!u.includes(i)){ u.push(i); saveUsed(u); }
     b.textContent = 'Redeemed ✓'; b.closest('.coupon').classList.add('used');
-    const msg = `Hey! I'm redeeming my birthday coupon: "${c.t}" ${c.ic}  No excuses 😌`;
+    // const msg = `Hey! I'm redeeming my birthday coupon: "${c.t}" ${c.ic}  No excuses 😌`;
+    const msg = `🎟️ *Birthday Coupon Redeemed!*\n\n${c.ic} _${c.t}_\n\nYou promised, no excuses 😌\nWhen are we doing this? 💙`;
     const num = (CONFIG.whatsapp||'').replace(/\D/g,'');
     window.open(`https://wa.me/${num}?text=${encodeURIComponent(msg)}`, '_blank');
   });
